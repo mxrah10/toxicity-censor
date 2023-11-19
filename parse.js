@@ -1,15 +1,21 @@
-let example = "test *text text text text* test test";
-let parsedText;
-
-function parseProfanity(inputText){
-    var parsedText = inputText.substring(
-        inputText.indexOf("*") + 1, 
-        inputText.lastIndexOf("*")
+function parseUninclusive(inputText){
+    var parsedUninclusive = inputText.substring(
+        inputText.indexOf("(") + 1, 
+        inputText.lastIndexOf(")")
     );
 
-    const ProfanityArray = parsedText.split(" ");
+    const UninclusiveArray = parsedUninclusive.split(" ");
     
-    return ProfanityArray;
+    return UninclusiveArray;
 }
 
-console.log(parseProfanity(example));
+function parseSuggestions(inputText){
+    var parsedSuggestions = inputText.substring(
+        inputText.indexOf("[") + 1, 
+        inputText.lastIndexOf("]")
+    );
+
+    const SuggestionsArray = parsedSuggestions.split(" ");
+
+    return SuggestionsArray; 
+}
