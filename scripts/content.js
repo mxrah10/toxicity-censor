@@ -69,11 +69,14 @@ chrome.storage.local.get('enabled', function (data) {
         <div class="detoxify-popup">
             <div class="detoxify-titlebar">
               <span class="detoxify-title">DETOXIFY</span>
-              <span class="detoxify-close" onclick="document.getElementsByClassName('detoxify-popup')[0].outerHTML = '';">X</span>
+              <span class="detoxify-close" id="detoxify-close">X</span>
             </div>
             <span id="detoxify-content">` + text + `</span>
         </div>
-        `);
+      `);
+      document.getElementById("detoxify-close").onclick = () => {
+        document.getElementsByClassName('detoxify-popup')[0].outerHTML = '';
+      }
     }
   }
 
