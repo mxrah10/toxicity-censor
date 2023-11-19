@@ -21,6 +21,7 @@
   max-height: 33%;
   overflow-y: scroll;
   white-space: pre-line;
+  color: black;
   font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
