@@ -1,16 +1,31 @@
 document.querySelectorAll('input[type="text"], textarea, [contenteditable=true]').forEach(element => {
+  console.log("There is an element " + element.className);
   element.addEventListener('input', parse);
 });
 
-document.querySelectorAll('[data-text]').forEach(element => {
-})
+let observer = new MutationObserver(callback);
+function callback (mutations) {
+  console.log("mutation")
+}
+let options = {
+  childList: true,
+  subtree: true
+};
+
+setTimeout(() => {
+  console.log("load")
+  document.querySelectorAll('[data-text], [data-lexical-text]').forEach(element => {
+    console.log("There is an element " + element.className);
+    element.addEventListener('keyup', parse);
+    observer.observe(element, options);
+  })
+}, 4000)
 
 function parse(e) {
   console.log("parse fired")
   showPopup(e)
   const currentInput = e.target.value;
-  var innerHTML = e.target.innerHTML;
-  console.log(innerHTML)
+  console.log(currentInput)
 }
 
 function highlight(innerHTML, text) {
@@ -24,5 +39,15 @@ function highlight(innerHTML, text) {
 }
 
 function showPopup(e) {
-
+  var hasPopup = document.getElementsByClassName('detoxify-popup');
+  if (hasPopup.length > 0) {
+    document.getElementById('detoxify-content').innerHTML = e.target.value;
+  } else {
+    document.body.insertAdjacentHTML('beforeend', `
+      <div class="detoxify-popup">
+        <p class="detoxify-title">DETOXIFY</p>
+        <span id="detoxify-content">` + e.target.value + `</span>
+      </div>
+    `);
+  }
 }
