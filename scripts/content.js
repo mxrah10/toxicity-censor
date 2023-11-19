@@ -4,9 +4,10 @@ document.querySelectorAll('input[type="text"], textarea, [contenteditable=true]'
 
 document.querySelectorAll('[data-text]').forEach(element => {
 })
-  
+
 function parse(e) {
   console.log("parse fired")
+  showPopup(e)
   const currentInput = e.target.value;
   var innerHTML = e.target.innerHTML;
   console.log(innerHTML)
@@ -20,4 +21,8 @@ function highlight(innerHTML, text) {
     innerHTML = innerHTML.substring(0,index) + "<span class='highlight'>" + innerHTML.substring(index,index+text.length) + "</span>" + innerHTML.substring(index + text.length);
     e.currentTarget.innerHTML = innerHTML;
   }
+}
+
+function showPopup(e) {
+
 }
