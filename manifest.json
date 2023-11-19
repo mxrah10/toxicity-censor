@@ -4,6 +4,12 @@
     "description": "An extension that filters out any negative or toxic content on your page, while you are browsing, and actively gives a warning if your own messages or content has toxic or negative content.",
     "version": "1.0",
     "permissions": ["activeTab"],
+
+    "icons": {
+      "128": "images/icon-128px.png",
+      "50": "images/icon-50px.png"
+    },
+
     "content_scripts": [
         {
           "js": ["scripts/content.js"],
