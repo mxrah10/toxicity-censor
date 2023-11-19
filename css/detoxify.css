@@ -26,7 +26,27 @@
   font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+.detoxify-titlebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .detoxify-title {
   font-weight: bold;
   font-size: 0.8rem;
+  padding: 0;
+  margin: 0;
+}
+
+.detoxify-close {
+  color: darkred;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.detoxify-close:hover {
+  text-decoration: underline;
 }
