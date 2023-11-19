@@ -3,7 +3,14 @@ document.querySelectorAll('input[type="text"], textarea').forEach(element => {
 });
 
 document.querySelectorAll('[data-text]').forEach(element => {
-  element.addEventListener('change', parse);
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      console.log(mutation);
+    });    
+  });
+  
+  var config = {characterData: true, subtree: true};
+  observer.observe(element, config);
 })
   
 function parse(e) {
