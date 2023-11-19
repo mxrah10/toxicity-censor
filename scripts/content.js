@@ -1,19 +1,22 @@
-document.querySelectorAll('input[type="text"], textarea').forEach(element => {
+var observer = new MutationObserver(function(mutations) {
+  mutations.forEach(function(mutation) {
+    console.log(mutation);
+  });    
+});
+
+var config = {characterData: true, subtree: true};
+
+document.querySelectorAll('input[type="text"], textarea, [contenteditable=true]').forEach(element => {
   element.addEventListener('input', parse);
+  observer.observe(element, config);
 });
 
 document.querySelectorAll('[data-text]').forEach(element => {
-  var observer = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-      console.log(mutation);
-    });    
-  });
-  
-  var config = {characterData: true, subtree: true};
   observer.observe(element, config);
 })
   
 function parse(e) {
+  console.log("parse fired")
   const currentInput = e.target.value;
   var innerHTML = e.target.innerHTML;
   console.log(innerHTML)
