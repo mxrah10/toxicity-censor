@@ -6,8 +6,8 @@
     "permissions": ["activeTab"],
 
     "icons": {
-      "128": "images/icon-128px.png",
-      "50": "images/icon-50px.png"
+      "128": "images/icon-128.png",
+      "50": "images/icon-50.png"
     },
 
     "content_scripts": [
