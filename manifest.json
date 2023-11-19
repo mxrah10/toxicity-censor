@@ -1,8 +1,13 @@
 {
     "manifest_version": 3,
-
     "name": "Detoxify",
     "description": "An extension that filters out any negative or toxic content on your page, while you are browsing, and actively gives a warning if your own messages or content has toxic or negative content.",
-    "version": "1.0"
-
+    "version": "1.0",
+    "permissions": ["activeTab"],
+    "content_scripts": [
+        {
+          "js": ["scripts/content.js"],
+          "matches": ["<all_urls>"]
+        }
+    ]
 }
