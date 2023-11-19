@@ -1,8 +1,5 @@
 // Query for textareas
 chrome.storage.local.get('enabled', function(data) {
-    if (!data.enabled) {
-      return; 
-    }
     var textareaFound = false;
     document.querySelectorAll('input[type="text"], textarea, [contenteditable=true]').forEach(element => {
     textareaFound = true;
