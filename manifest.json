@@ -13,6 +13,7 @@
     "content_scripts": [
         {
           "js": ["scripts/content.js"],
+          "css": ["css/detoxify.css"],
           "matches": ["<all_urls>"]
         }
     ]

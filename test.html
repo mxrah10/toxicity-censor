@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find HTML Tags with Attribute</title>
+</head>
+<body>
+
+<!-- Example HTML with data-text attribute -->
+<div data-text="example">This is a div with data-text attribute.</div>
+<p data-text="paragraph">This is a paragraph with data-text attribute.</p>
+<span>This element does not have data-text attribute.</span>
+
+<script>
+  // Function to find HTML tags with a specific attribute
+  function findElementsWithAttribute(attributeName) {
+    const elementsWithAttribute = document.querySelectorAll(`[${attributeName}]`);
+    return Array.from(elementsWithAttribute);
+  }
+
+  // Find elements with data-text attribute
+  const elementsWithDataText = findElementsWithAttribute('data-text');
+
+  // Log the found elements to the console
+  console.log('Elements with data-text attribute:', elementsWithDataText);
+</script>
+
+</body>
+</html>
