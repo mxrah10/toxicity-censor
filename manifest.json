@@ -15,7 +15,7 @@
 
     "content_scripts": [
         {
-          "js": ["scripts/content.js"],
+          "js": ["parse.js", "api.js", "content.js"],
           "css": ["css/detoxify.css"],
           "matches": ["<all_urls>"]
         }
