@@ -49,17 +49,6 @@ chrome.storage.local.get('enabled', function (data) {
         }
     }
 
-    // highlight text given html
-    function highlight(innerHTML, badWord) {
-        var innerHTML = e.currentTarget.innerHTML;
-        var index = innerHTML.indexOf(badWord);
-        if (index >= 0) {
-            console.log("detected word")
-            innerHTML = innerHTML.substring(0, index) + "<span class='highlight'>" + innerHTML.substring(index, index + badWord.length) + "</span>" + innerHTML.substring(index + badWord.length);
-            e.currentTarget.innerHTML = innerHTML;
-        }
-    }
-
     // show the popup
     function showPopup(text) {
         var hasPopup = document.getElementsByClassName('detoxify-popup');
@@ -68,13 +57,14 @@ chrome.storage.local.get('enabled', function (data) {
             document.getElementById('detoxify-content').innerHTML = text;
         } else {
             document.body.insertAdjacentHTML('beforeend', `
-            <div class="detoxify-popup">
-                <p class="detoxify-title">DETOXIFY</p>
-                <span id="detoxify-content">` + text + `</span>
-            </div>
-            <span id="detoxify-content">` + text + `</span>
-        </div>
-      `);
+                <div class="detoxify-popup">
+                    <div class="detoxify-titlebar">
+                        <span class="detoxify-title">DETOXIFY</span>
+                        <span class="detoxify-close" id="detoxify-close">X</span>
+                    </div>
+                    <span id="detoxify-content">` + text + `</span>
+                </div>
+            `);
             document.getElementsByClassName('detoxify-popup')[0].classList.toggle('visible');
             document.getElementById("detoxify-close").onclick = () => {
                 document.getElementsByClassName('detoxify-popup')[0].outerHTML = '';

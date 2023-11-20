@@ -1,12 +1,25 @@
-function parseUninclusive(inputText){
-    var parsedUninclusive = inputText.substring(
-        inputText.indexOf("(") + 1,
-        inputText.lastIndexOf(")")
-    );
-
-    const UninclusiveArray = parsedUninclusive.split(" ");
-    return UninclusiveArray;
-}
+function parseUninclusive(inputText) {
+    let result = []
+    let currentPhrase = ""
+    let phraseStarted = false;
+  
+    for (let i in inputText) {
+      if (phraseStarted) {
+        if (inputText[i] == ')') {
+          phraseStarted = false;
+          result.push(currentPhrase)
+          currentPhrase = "";
+        } else {
+            currentPhrase += inputText[i];
+        }
+      }
+      if (inputText[i] == '(') {
+        phraseStarted = true;
+      }
+    }
+  
+    return result;
+  }
 
 function parseSuggestion(inputText){
     var parsedSuggestions = inputText.substring(
