@@ -1,5 +1,5 @@
 // Query for textareas
-chrome.storage.local.get('enabled', function(data) {
+chrome.storage.local.get('enabled', function(data)) {
     if (!data.enabled) {
       return; 
     }
@@ -82,7 +82,12 @@ chrome.storage.local.get('enabled', function(data) {
                 <p class="detoxify-title">DETOXIFY</p>
                 <span id="detoxify-content">` + text + `</span>
             </div>
-            `);
-        }
+            <span id="detoxify-content">` + text + `</span>
+        </div>
+      `);
+      document.getElementsByClassName('detoxify-popup')[0].classList.toggle('visible');
+      document.getElementById("detoxify-close").onclick = () => {
+        document.getElementsByClassName('detoxify-popup')[0].outerHTML = '';
+      }
     }
-});
+}};

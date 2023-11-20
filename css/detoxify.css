@@ -1,5 +1,10 @@
-.highlight {
-  background-color: yellow;
+.detoxify-toxic {
+  color: darkred;
+  text-decoration: underline;
+}
+
+.detoxify-alternative {
+  color: darkgreen;
 }
 
 .detoxify-popup > * {

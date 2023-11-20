@@ -7,7 +7,7 @@ const apiKey = null; //use your own api key >:(
 const url = 'https://api.openai.com/v1/chat/completions';
 
 function setPrompt(userTextInput){
-    prompt = userTextInput
+    prompt = userTextInput;
 
 }
 
