@@ -13,7 +13,7 @@ function CallAPI(text) {
     const queryData = {
         model: "gpt-3.5-turbo",
         messages: [
-            { "role": "user", "content": "Tell me the noninclusive words in '" + prompt +"' without explaining them and enclose them in round brackets." }
+            { "role": "user", "content": "Tell me the noninclusive words in '" + prompt +"' without explaining them and enclose them in round brackets, then put an alternative suggestion that is inclusive and friendly next to it and enclose them in square brackets." }
         ]
     };
 
