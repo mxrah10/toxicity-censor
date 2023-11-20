@@ -74,6 +74,7 @@ chrome.storage.local.get('enabled', function (data) {
             <span id="detoxify-content">` + text + `</span>
         </div>
       `);
+      document.getElementsByClassName('detoxify-popup')[0].classList.toggle('visible');
       document.getElementById("detoxify-close").onclick = () => {
         document.getElementsByClassName('detoxify-popup')[0].outerHTML = '';
       }
