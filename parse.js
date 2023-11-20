@@ -21,13 +21,26 @@ function parseUninclusive(inputText) {
     return result;
   }
 
-function parseSuggestion(inputText){
-    var parsedSuggestions = inputText.substring(
-        inputText.indexOf("[") + 1,
-        inputText.lastIndexOf("]")
-    )
-
-    const SuggestionsArray = parsedSuggestions.split(" ");
-    return SuggestionsArray;
+function parseSuggestions(inputText){
+    let result = []
+    let currentPhrase = ""
+    let phraseStarted = false;
+  
+    for (let i in inputText) {
+      if (phraseStarted) {
+        if (inputText[i] == ']') {
+          phraseStarted = false;
+          result.push(currentPhrase)
+          currentPhrase = "";
+        } else {
+            currentPhrase += inputText[i];
+        }
+      }
+      if (inputText[i] == '[') {
+        phraseStarted = true;
+      }
+    }
+  
+    return result;
 }
 
