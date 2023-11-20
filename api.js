@@ -13,7 +13,7 @@ function CallAPI(text) {
     const queryData = {
         model: "gpt-3.5-turbo",
         messages: [
-            { "role": "user", "content": "Tell me the noninclusive words in '" + prompt +"' without explaining them and enclose them in round brackets, then put an alternative suggestion that is inclusive and friendly next to it and enclose them in square brackets." }
+            { "role": "user", "content": "Tell me the noninclusive words in '" + prompt +"' and enclose them in round brackets, then put the alternative word that is inclusive and friendly next to it and enclose it in square brackets. Do not explain anything." }
         ]
     };
 
@@ -50,7 +50,7 @@ function highlight(innerHTML, badWord) {
     var index = innerHTML.indexOf(badWord);
     if (index >= 0) {
         console.log("detected word");
-        const newHTML = innerHTML.substring(0, index) + "<span class='highlight'>" + innerHTML.substring(index, index + badWord.length) + "</span>" + innerHTML.substring(index + badWord.length);
+        const newHTML = innerHTML.substring(0, index) + "<span class='detoxify-toxic'>" + innerHTML.substring(index, index + badWord.length) + "</span>" + innerHTML.substring(index + badWord.length);
         return newHTML;
     }
     return innerHTML

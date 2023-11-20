@@ -14,7 +14,7 @@ chrome.storage.local.get('enabled', function (data) {
         console.log("parse fired");
         const currentInput = e.target.value;
         showPopup(currentInput);
-        CallAPI(currentInput);
+        callAPIIfUnlimited(currentInput);
         console.log(currentInput);
     }
 
@@ -24,8 +24,8 @@ chrome.storage.local.get('enabled', function (data) {
             mutations.forEach((mutation) => {
                 console.log("subtree changed");
                 console.log(mutation.target);
-                //showPopup(mutation.target.wholeText);
                 showPopup(mutation.target.wholeText);
+                callAPIIfUnlimited(mutation.target.wholeText);
             });
         });
         var config = { childList: true, subtree: true, characterData: true };
@@ -70,5 +70,16 @@ chrome.storage.local.get('enabled', function (data) {
                 document.getElementsByClassName('detoxify-popup')[0].outerHTML = '';
             }
         }
+    }
+
+    var typingTimer;
+    function callAPIIfUnlimited(text) {
+        var timeout = 1500;
+
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(() => {
+            console.log("timeout passed")
+            CallAPI(text);
+        }, timeout);
     }
 });

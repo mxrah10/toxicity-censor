@@ -1,10 +1,10 @@
 .detoxify-toxic {
-  color: darkred;
+  color: red;
   text-decoration: underline;
 }
 
 .detoxify-alternative {
-  color: darkgreen;
+  color: green;
 }
 
 .detoxify-popup > * {
